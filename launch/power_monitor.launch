@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<launch>
+  <node name="indoornav_husky_power_monitor" pkg="cpr_indoornav_husky" type="husky_power_monitor" />
+</launch>
