@@ -2,8 +2,8 @@
 Changelog for package cpr_indoornav_husky
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.2 (2022-06-15)
+------------------
 * Fix the python interpreter to use Python3
 * Contributors: Chris I-B
 
