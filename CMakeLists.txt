@@ -13,6 +13,7 @@ install(PROGRAMS
   scripts/environment
   scripts/husky_power_monitor
   scripts/install
+  scripts/setup_docking
   scripts/start_husky_bridge
 
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
