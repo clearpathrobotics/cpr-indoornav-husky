@@ -25,9 +25,9 @@ express permission of Clearpath Robotics.
   <arg name="navigation_params_dir" value="$(eval find('cpr_docking_' + arg('platform')) + '/$(arg platform)_gps_navigation/params/$(arg platform)_navigation')" />
 
   <!-- Enable the SICK_LMS 2D lidar (front if only one) -->
-  <arg name="sick_lms" value="$(optenv HUSKY_LMS1XX_ENABLED false)" />
+  <arg name="sick_lms" value="$(optenv HUSKY_LMS1XX_ENABLED true)" />
   <!-- Enable the rear SICK_LMS 2D lidar -->
-  <arg name="rear_sick_lms" value="$(optenv HUSKY_LMS1XX_SECONDARY_ENABLED false)" />
+  <arg name="rear_sick_lms" value="$(optenv HUSKY_LMS1XX_SECONDARY_ENABLED true)" />
 
   <!-- Enable the Hokuyo 2D lidar (front if only one) -->
   <arg name="hokuyo" value="$(optenv HUSKY_UST10_ENABLED false)" />
