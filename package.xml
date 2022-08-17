@@ -13,6 +13,7 @@
   <exec_depend>cpr_indoornav_base</exec_depend>
   <exec_depend>husky_description</exec_depend>
   <exec_depend>husky_base</exec_depend>
+  <exec_depend>husky_control</exec_depend>
   <exec_depend>husky_msgs</exec_depend>
   <exec_depend>launch_delay</exec_depend>
   <exec_depend>microstrain_inertial_driver</exec_depend>

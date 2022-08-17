@@ -1,4 +1,7 @@
 <?xml version="1.0" ?>
 <launch>
+  <arg name="bridge_extras"
+       default="$(eval optenv('CPR_INDOORNAV_BRIDGE_EXTRAS', find('husky_control') + '/config/empty.yaml'))"/>
   <rosparam command="load" subst_value="true" file="$(find cpr_indoornav_husky)/config/bridge.yaml" />
+  <rosparam command="load" subst_value="true" file="$(arg bridge_extras)" />
 </launch>
