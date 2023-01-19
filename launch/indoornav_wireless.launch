@@ -1,4 +1,8 @@
 <?xml version="1.0" ?>
 <launch>
+  <node pkg="wireless_watcher" name="wireless_watcher" type="watcher_node">
+    <remap from="connected" to="wifi_connected" />
+    <remap from="connection" to="wifi_connection" />
+  </node>
   <node ns="export/rocksteady/wireless" pkg="wireless_watcher" name="indoornav_wireless_watcher" type="watcher_node" />
 </launch>
