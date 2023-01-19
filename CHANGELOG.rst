@@ -2,8 +2,8 @@
 Changelog for package cpr_indoornav_husky
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.4 (2023-01-19)
+------------------
 * Add the wifi_connected and wifi_connection topics that were missing by default
 * Contributors: Chris Iverach-Brereton
 
