@@ -2,8 +2,8 @@
 Changelog for package cpr_indoornav_husky
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.5 (2023-03-09)
+------------------
 * Fix the PI variable; husky_description uses M_PI, not PI
 * Contributors: Chris Iverach-Brereton
 
