@@ -2,6 +2,11 @@
 Changelog for package cpr_indoornav_husky
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix the PI variable; husky_description uses M_PI, not PI
+* Contributors: Chris Iverach-Brereton
+
 0.3.4 (2023-01-19)
 ------------------
 * Add the wifi_connected and wifi_connection topics that were missing by default
