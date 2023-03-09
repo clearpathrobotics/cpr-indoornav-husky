@@ -6,14 +6,14 @@
     <joint name="upgraded_imu_joint" type="fixed">
       <parent link="base_link" />
       <child link="upgraded_imu_link" />
-      <origin xyz="0 0 0" rpy="0 0 ${PI}" />
+      <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
     </joint>
   </xacro:if>
   <xacro:unless value="$(optenv INDOORNAV_IMU_GX5 0)">
     <joint name="upgraded_imu_joint" type="fixed">
       <parent link="base_link" />
       <child link="upgraded_imu_link" />
-      <origin xyz="0 0 0" rpy="0 0 ${PI/2}" />
+      <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}" />
     </joint>
   </xacro:unless>
 </robot>
