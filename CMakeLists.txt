@@ -13,6 +13,7 @@ install(PROGRAMS
   scripts/environment
   scripts/husky_power_monitor
   scripts/husky_safety_stop
+  scripts/husky_twist_repub
   scripts/install
   scripts/start_husky_bridge
 
