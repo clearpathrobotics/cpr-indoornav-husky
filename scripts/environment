@@ -1,15 +1,21 @@
 #!/bin/bash
 
-export HUSKY_LMS1XX_ENABLED=1
-export HUSKY_LMS1XX_IP=192.168.131.20
-export HUSKY_LMS1XX_SECONDARY_ENABLED=1
-export HUSKY_LMS1XX_SECONDARY_IP=192.168.131.21
-
-export HUSKY_URDF_EXTRAS=$(catkin_find cpr_indoornav_husky urdf/indoornav_husky.urdf.xacro --first-only)
-
-if [ -z "$INDOORNAV_IMU_GX5" ] || [ "$INDOORNAV_IMU_GX5" = "0" ];
+if [ -z "$OUTDOORNAV_ENABLED" ] || [[ "$OUTDOORNAV_ENABLED" == "false" ]];
 then
-  export HUSKY_CONFIG_EXTRAS=$(catkin_find cpr_indoornav_husky config/indoornav_um7.yaml --first-only)
+  export HUSKY_LMS1XX_ENABLED=1
+  export HUSKY_LMS1XX_IP=192.168.131.20
+  export HUSKY_LMS1XX_SECONDARY_ENABLED=1
+  export HUSKY_LMS1XX_SECONDARY_IP=192.168.131.21
+
+  export HUSKY_URDF_EXTRAS=$(catkin_find cpr_indoornav_husky urdf/indoornav_husky.urdf.xacro --first-only)
+
+  if [ -z "$INDOORNAV_IMU_GX5" ] || [ "$INDOORNAV_IMU_GX5" = "0" ];
+  then
+    export HUSKY_CONFIG_EXTRAS=$(catkin_find cpr_indoornav_husky config/indoornav_um7.yaml --first-only)
+  else
+    export HUSKY_CONFIG_EXTRAS=$(catkin_find cpr_indoornav_husky config/indoornav_gx5.yaml --first-only)
+  fi
+
 else
   export HUSKY_CONFIG_EXTRAS=$(catkin_find cpr_indoornav_husky config/indoornav_gx5.yaml --first-only)
 fi
