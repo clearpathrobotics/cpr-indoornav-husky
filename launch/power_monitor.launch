@@ -1,4 +1,15 @@
 <?xml version="1.0" ?>
 <launch>
-  <node name="indoornav_husky_power_monitor" pkg="cpr_indoornav_husky" type="husky_power_monitor" />
+  <arg name="outdoornav_enabled" value="$(optenv OUTDOORNAV_ENABLED false)" />
+  <arg name="outdoornav_config"  value="$(optenv OUTDOORNAV_CONFIGURATION observer)" />
+  <arg name="bms_num"            default="0" />
+
+  <group if="$(arg outdoornav_enabled)">
+    <node name="indoornav_husky_power_monitor" pkg="topic_tools" type="relay"
+      args="/onboard_systems/bms_$(arg bms_num)/state /export/rocksteady/bms/battery_status">
+    </node>
+  </group>
+  <group unless="$(arg outdoornav_enabled)">
+    <node name="indoornav_husky_power_monitor" pkg="cpr_indoornav_husky" type="husky_power_monitor" />
+  </group>
 </launch>
