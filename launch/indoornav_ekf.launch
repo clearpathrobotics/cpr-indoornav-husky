@@ -4,9 +4,9 @@
        to start our own EKF node as part of the IndoorNav bringup. Otherwise we can rely on the
        platform-level EKF node
   -->
-  <unless value="(optenv ENABLE_EKF true)">
+  <group unless="$(optenv ENABLE_EKF true)">
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
       <rosparam command="load" file="$(find husky_control)/config/localization.yaml" />
     </node>
-  </unless>
+  </group>
 </launch>
