@@ -13,20 +13,29 @@ import sys
 
 from catkin.find_in_workspaces import find_in_workspaces
 
-parser = argparse.ArgumentParser()
-parser.add_argument('-a','--ip-address', metavar='IP_ADDR', type=str, action='store', dest='ip_address', help='IP address of the IndoorNav backpack. Default: 10.252.252.1', default='10.252.252.1')
-parser.add_argument('-u','--username', metavar='USER', type=str, action='store', dest='username', help='Login name for the IndoorNav backpack. Default: administrator', default='administrator')
-parser.add_argument('-d','--docking', metavar='USER', type=bool, action='store', dest='docking', help='Enable/Disable docking for indoornav. Default: False', default=False)
-args = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-a','--ip-address', metavar='IP_ADDR', type=str, action='store', dest='ip_address', help='IP address of the IndoorNav backpack. Default: 10.252.252.1', default='10.252.252.1')
+    parser.add_argument('-u','--username', metavar='USER', type=str, action='store', dest='username', help='Login name for the IndoorNav backpack. Default: administrator', default='administrator')
+    parser.add_argument('-d','--docking', metavar='USER', type=bool, action='store', dest='docking', help='Enable/Disable docking for indoornav. Default: False', default=False)
+    args = parser.parse_args()
 
-if getpass.getuser() == 'root':
-    print("ERROR: This script cannot be run as root")
-    sys.exit(1)
+    if getpass.getuser() == 'root':
+        print("ERROR: This script cannot be run as root")
+        sys.exit(1)
 
-backpack_ip = args.ip_address
-remote_user = args.username
-local_user = getpass.getuser()
+    backpack_ip = args.ip_address
+    remote_user = args.username
+    local_user = getpass.getuser()
 
-cpr_indoornav_base.installation.create_indoornav_service('husky', local_user, remote_user, backpack_ip)
-if args.docking:
-    cpr_indoornav_base.installation.create_docking_service('husky')
+    cpr_indoornav_base.installation.create_indoornav_service(
+        'husky', local_user, remote_user, backpack_ip,
+        extra_launch=[
+            ["cpr_indoornav_husky", "launch/indoornav_ekf.launch"]
+        ]
+    )
+    if args.docking:
+        cpr_indoornav_base.installation.create_docking_service('husky')
+
+if __name__=="__main__":
+    main()
