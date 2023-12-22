@@ -31,7 +31,8 @@ def main():
     cpr_indoornav_base.installation.create_indoornav_service(
         'husky', local_user, remote_user, backpack_ip,
         extra_launch=[
-            ["cpr_indoornav_husky", "launch/indoornav_ekf.launch"]
+            ["cpr_indoornav_husky", "launch/indoornav_ekf.launch"],
+            ["cpr_indoornav_husky", "launch/sensors_adaptor.launch"]
         ]
     )
     if args.docking:
