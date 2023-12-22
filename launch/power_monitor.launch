@@ -6,7 +6,7 @@
 
   <group if="$(arg outdoornav_enabled)">
     <node name="indoornav_husky_power_monitor" pkg="topic_tools" type="relay"
-      args="/onboard_systems/bms_$(arg bms_num)/state /export/rocksteady/bms/battery_status">
+      args="/onboard_systems/bms_$(arg bms_num)/state /bms/battery_status">
     </node>
   </group>
   <group unless="$(arg outdoornav_enabled)">
