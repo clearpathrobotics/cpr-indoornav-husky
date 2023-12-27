@@ -12,4 +12,7 @@
   <group unless="$(arg outdoornav_enabled)">
     <node name="indoornav_husky_power_monitor" pkg="cpr_indoornav_husky" type="husky_power_monitor" />
   </group>
+
+  <node pkg="topic_tools" type="relay" name="export_rocksteady_battery_relay"
+        args="/bms/battery_status /export/rocksteady/bms/battery_status" />
 </launch>
