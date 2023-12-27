@@ -3,11 +3,20 @@
   <arg name="outdoornav_enabled" value="$(optenv OUTDOORNAV_ENABLED false)" />
   <arg name="outdoornav_config"  value="$(optenv OUTDOORNAV_CONFIGURATION observer)" />
   <arg name="bms_num"            default="0" />
+  <arg name="pdu_num"            default="0" />
+  <arg name="pdu_enabled"        value="$(optenv PDU_ENABLE_DRVER false)" />
 
   <group if="$(arg outdoornav_enabled)">
-    <node name="indoornav_husky_power_monitor" pkg="topic_tools" type="relay"
-      args="/onboard_systems/bms_$(arg bms_num)/battery_state_with_lvc /bms/battery_status">
-    </node>
+    <group if="$(arg pdu_enabled)">
+      <node name="indoornav_husky_power_monitor" pkg="topic_tools" type="relay"
+        args="/onboard_systems/pdu_$(arg pdu_num)/battery_state_with_lvc /bms/battery_status">
+      </node>
+    </group>
+    <group unless="$(arg pdu_enabled)">
+      <node name="indoornav_husky_power_monitor" pkg="topic_tools" type="relay"
+        args="/onboard_systems/bms_$(arg bms_num)/state /bms/battery_status">
+      </node>
+    </group>
   </group>
   <group unless="$(arg outdoornav_enabled)">
     <node name="indoornav_husky_power_monitor" pkg="cpr_indoornav_husky" type="husky_power_monitor" />
