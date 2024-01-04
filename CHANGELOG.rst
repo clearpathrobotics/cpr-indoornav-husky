@@ -2,8 +2,8 @@
 Changelog for package cpr_indoornav_husky
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.0 (2024-01-04)
+------------------
 * Update to work with Otto's 2.26 release
 * Add improved support for Husky Observer
 * Contributors: Chris Iverach-Brereton, José Mastrangelo
