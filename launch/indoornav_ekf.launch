@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<launch>
+  <!-- If the platform-level EKF node is disabled, e.g. because OutdoorNav is present, we need
+       to start our own EKF node as part of the IndoorNav bringup. Otherwise we can rely on the
+       platform-level EKF node
+  -->
+  <group unless="$(optenv ENABLE_EKF true)">
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+      <rosparam command="load" file="$(find husky_control)/config/localization.yaml" />
+    </node>
+  </group>
+</launch>

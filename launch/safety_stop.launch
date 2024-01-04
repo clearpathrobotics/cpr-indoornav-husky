@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<launch>
+  <node name="husky_safety_stop_node" type="husky_safety_stop" pkg="cpr_indoornav_husky" />
+</launch>

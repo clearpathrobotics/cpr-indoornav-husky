@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="outdoornav_enabled" value="$(optenv OUTDOORNAV_ENABLED false)" />
+  <arg name="outdoornav_config"  value="$(optenv OUTDOORNAV_CONFIGURATION observer)" />
+
+  <group if="$(arg outdoornav_enabled)">
+    <group if="$(eval outdoornav_config == 'observer')">
+      <node name="front_laser__relay" pkg="topic_tools" type="relay" args="/sensors/lidar_1/scan /front/scan" />
+      <node name="rear_laser__relay" pkg="topic_tools" type="relay" args="/sensors/lidar_2/scan /rear/scan" />
+      <node name="imu__relay" pkg="topic_tools" type="relay" args="/sensors/imu_0/data /gx5/imu/data" />
+    </group>
+
+    <!--TODO: How to get the laser number reagrdless of which sensor is integrated -->
+    <group unless="$(eval outdoornav_config == 'observer')">
+      <node name="front_laser__relay" pkg="topic_tools" type="relay" args="/sensors/lidar_$(arg front_laser_num)/scan /front/scan" />
+      <node name="rear_laser__relay" pkg="topic_tools" type="relay" args="/sensors/lidar_$(arg rear_laser_num)/scan /rear/scan" />
+    </group>
+  </group>
+
+</launch>
