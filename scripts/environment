@@ -15,7 +15,4 @@ then
   else
     export HUSKY_CONFIG_EXTRAS=$(catkin_find cpr_indoornav_husky config/indoornav_gx5.yaml --first-only)
   fi
-
-else
-  export HUSKY_CONFIG_EXTRAS=$(catkin_find cpr_indoornav_husky config/indoornav_gx5.yaml --first-only)
 fi
