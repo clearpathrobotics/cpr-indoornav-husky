@@ -2,6 +2,12 @@
 Changelog for package cpr_indoornav_husky
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Swap the priorities of /cmd_vel and /manual/cmd_vel to enable teleop assist via the GUI
+* Remove Config_extras export for outdoornav
+* Contributors: Chris Iverach-Brereton, Michael Hosmar, José Mastrangelo
+
 0.4.0 (2024-01-04)
 ------------------
 * Update to work with Otto's 2.26 release
